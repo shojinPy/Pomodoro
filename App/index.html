@@ -17,13 +17,40 @@
   </head>
   <body>
     <!-- Main div -->
-    <div id="app">
-    </div>
+    <div id="parent">
+
+      <!-- Header -->
+      <header>
+        <h2 id="main-header">Session</h2>
+      </header>
 
       <!-- Timer -->
-      <div>
-        <h1 id="main-timer">Hello World</h1>
+      <div id="timer-container child">
+        <h1>00:00</h1>
       </div>
+
+      <!-- Buttons -->
+      <div class="button-container child">
+        <!-- Button set-A -->
+        <button>Start</button>
+        <button>Stop</button>
+        <!-- Conditional -->
+        <button>Reset</button>
+      </div>
+
+      <!-- Timer-type selection -->
+      <div class="selection-container child">
+        <ul>
+          <li id="session-button">Session</li>
+          <div class="item-divider"></div>
+
+          <li id="rest-button">Rest</li>
+          <div class="item-divider"></div>
+
+          <li id="break-button">Break</li>
+        </ul>
+      </div>
+    </div>
 
     <!-- Javascript source -->
     <script type="module" src="/main.js"></script>
