@@ -20,6 +20,8 @@
 
 body {
   background-color: var(--clr-red);
+  max-width: 768px;
+  margin: 0 auto;
 }
 
 /* Header style */
@@ -36,19 +38,15 @@ header {
   margin: 100px 0 0px 0;
   font-size: 2em;
   text-align: center;
-
-  border: 1px solid var(--clr-black);
 }
 
 /* Button container style */
 .button-container {
-  margin: 30px 0 100px 0;
+  margin: 100px 0 100px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-
-  border: 1px solid var(--clr-black);
 }
 
 .button-container button i {
@@ -59,7 +57,7 @@ header {
 .button-container #play-button {
   height: 80px;
   width: 80px;
-  margin-left: 70px;
+  margin-left: 60px;
   padding-left: 5px;
   background-color: var(--clr-green);
   border: 5px solid var(--clr-black);
@@ -85,7 +83,7 @@ header {
 .button-container #pause-button {
   height: 80px;
   width: 80px;
-  margin-left: 70px;
+  margin-left: 60px;
   background-color: var(--clr-blue);
   border: 5px solid var(--clr-black);
   border-radius: 50%;
@@ -139,7 +137,7 @@ header {
 }
 
 .selection-container ul li {
-  width: 100px;
+  width: 30%;
   margin: 0 2px;
   background-color: blue;
   border: 1px solid var(--clr-black);
@@ -165,4 +163,11 @@ header {
   color: var(--clr-dark-red);
   top: -12px;
   right: 0;
+}
+
+@media screen and (min-width: 320px) {
+
+  .time-container {
+    font-size: 2.5em;
+  }
 }
