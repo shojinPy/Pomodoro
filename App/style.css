@@ -31,18 +31,22 @@ header {
 /* Timer style */
 .time-container {
   color: var(--clr-black);
-  margin: 10px 0;
+  margin: 100px 0 0px 0;
   font-size: 2em;
   text-align: center;
+
+  border: 1px solid var(--clr-black);
 }
 
 /* Button container style */
 .button-container {
-  margin: 50px 0;
+  margin: 30px 0 100px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+
+  border: 1px solid var(--clr-black);
 }
 
 .button-container button i {
