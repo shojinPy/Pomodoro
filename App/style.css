@@ -13,13 +13,13 @@
 }
 
 header {
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   padding: 5px 0;
   text-align: center;
 }
 
-.timer-container {
-
-  /* Debug property */
-  border: 1px solid black;
+.time-container {
+  margin: 10px 0;
+  font-size: 2em;
+  text-align: center;
 }
