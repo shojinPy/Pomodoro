@@ -1,5 +1,5 @@
 // Visual variables
-const backgroundColor = document.body.style 
+const documentBody = document.body;
 
 // Displayer variables
 const headTitle = document.getElementById('head-title');
@@ -18,30 +18,98 @@ const stopButton = document.getElementById('stop-button');
 
 // Timer types object
 const sessionTimer = {
-    type: "session",
+    type: "Session",
     accentColor: "var(--clr-red)",
-    header: "Session",
+}
+
+const restTimer = {
+    type: "Rest",
+    accentColor: "var(--clr-orange)",
+}
+
+const breakTimer = {
+    type: "Break",
+    accentColor: "var(--clr-green)",
 }
 
 // Conditional variables
 let timerType = 'session';
 
+// Select timer type function
 typeSession.onclick = () => {
 
-    if(timerType!=='session') {
+    if(timerType!='session') {
 
         console.log("Switching to session timer...");
-        timerType = sessionTimer.type;
+        timerType = sessionTimer.type.toLowerCase();
 
         // Visual change
-        timerTitle = sessionTimer.header;
-        backgroundColor = sessionTimer.accentColor;
-        typeSession.style.backgroundColor = 'var(--clr-black)';
+        timerTitle.textContent = sessionTimer.type;
+        documentBody.style.backgroundColor = sessionTimer.accentColor;
         typeSession.style.color = sessionTimer.accentColor;
+        typeSession.style.backgroundColor = 'var(--clr-black)';
+
+        // Change other types to normal
+        typeRest.style.color = 'var(--clr-black)';
+        typeRest.style.backgroundColor = 'transparent';
+        typeBreak.style.color = 'var(--clr-black)';
+        typeBreak.style.backgroundColor = 'transparent';
     }
 
     else {
 
-        console.log("You're already at session timer.");
+        console.log("You're already at session timer!");
+    }
+}
+
+typeRest.onclick = () => {
+
+    if(timerType!='rest') {
+
+        console.log("Switching to rest timer...");
+        timerType = restTimer.type.toLowerCase();
+
+        // Visual change
+        timerTitle.textContent = restTimer.type;
+        documentBody.style.backgroundColor = restTimer.accentColor;
+        typeRest.style.color = restTimer.accentColor;
+        typeRest.style.backgroundColor = 'var(--clr-black)';
+
+        // Change other types to normal
+        typeBreak.style.color = 'var(--clr-black)';
+        typeBreak.style.backgroundColor = 'transparent';
+        typeSession.style.color = 'var(--clr-black';
+        typeSession.style.backgroundColor = 'transparent';
+    }
+
+    else {
+
+        console.log("You're already at rest timer!");
+    }
+}
+
+typeBreak.onclick = () => {
+
+    if(timerType!='break') {
+
+        console.log("Switching to break timer...");
+        timerType = breakTimer.type.toLowerCase();
+
+        // Visual change
+        timerTitle.textContent = breakTimer.type;
+        documentBody.style.backgroundColor = breakTimer.accentColor;
+        typeBreak.style.backgroundColor = 'var(--clr-black)';
+        typeBreak.style.color = breakTimer.accentColor;
+
+        // Change other types to normal
+        typeSession.style.color = 'var(--clr-black)';
+        typeSession.style.backgroundColor = 'transparent';
+        typeRest.style.color = 'var(--clr-black)';
+        typeRest.style.backgroundColor = 'transparent';
+    }
+
+    else {
+
+        console.log("You're already at break timer!");
     }
 }
