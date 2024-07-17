@@ -17,23 +17,80 @@ const pauseButton = document.getElementById('pause-button');
 const stopButton = document.getElementById('stop-button');
 
 // Timer types object
-const sessionTimer = {
-    type: "Session",
-    accentColor: "var(--clr-red)",
-}
+const selectType = {
+    sessionTimer: {
+        type: "Session",
+        accentColor: "var(--clr-red)",
+        timerValue: 25,
+    },
 
-const restTimer = {
-    type: "Rest",
-    accentColor: "var(--clr-orange)",
-}
+    restTimer: {
+        type: "Rest",
+        accentColor: "var(--clr-orange)",
+        timerValue: 5,
+    },
 
-const breakTimer = {
-    type: "Break",
-    accentColor: "var(--clr-green)",
+    breakTimer: {
+        type: "Break",
+        accentColor: "var(--clr-green)",
+        timerValue: 30,
+    },
 }
 
 // Conditional variables
 let timerType = 'session';
+let isRunning = false;
+
+// Timer variables
+let timerSpan = selectType.sessionTimer.timerValue;
+let playTime = null;
+let pauseTime = null;
+
+function startTimer(timer) {
+
+
+}
+
+// Timer button function
+playButton.onclick = () => {
+    
+    if(!isRunning) {
+        // Visual
+        playButton.style.display = 'none';
+        stopButton.style.display = 'none';
+        pauseButton.style.display = 'block';
+
+        // Logic
+        console.log(timerSpan);
+
+        isRunning = true;
+    }
+
+    else {
+
+    }
+}
+
+pauseButton.onclick = () => {
+    
+    if(isRunning) {
+
+        playButton.style.display = 'block';
+        stopButton.style.display = 'block';
+        pauseButton.style.display = 'none';
+
+        isRunning = false;
+    }
+
+    else {
+
+    }
+}
+
+stopButton.onclick = () => {
+
+}
+
 
 // Select timer type function
 typeSession.onclick = () => {
@@ -41,13 +98,19 @@ typeSession.onclick = () => {
     if(timerType!='session') {
 
         console.log("Switching to session timer...");
-        timerType = sessionTimer.type.toLowerCase();
+        timerType = selectType.sessionTimer.type.toLowerCase();
+        timerSpan = selectType.sessionTimer.timerValue;
 
         // Visual change
-        timerTitle.textContent = sessionTimer.type;
-        documentBody.style.backgroundColor = sessionTimer.accentColor;
-        typeSession.style.color = sessionTimer.accentColor;
+        timerTitle.textContent = selectType.sessionTimer.type;
+        documentBody.style.backgroundColor = selectType.sessionTimer.accentColor;
+        typeSession.style.color = selectType.sessionTimer.accentColor;
         typeSession.style.backgroundColor = 'var(--clr-black)';
+
+        playButton.style.display = 'block';
+        stopButton.style.display = 'block';
+        pauseButton.style.display = 'none';
+        isRunning = false;
 
         // Change other types to normal
         typeRest.style.color = 'var(--clr-black)';
@@ -67,13 +130,19 @@ typeRest.onclick = () => {
     if(timerType!='rest') {
 
         console.log("Switching to rest timer...");
-        timerType = restTimer.type.toLowerCase();
+        timerType = selectType.restTimer.type.toLowerCase();
+        timerSpan = selectType.restTimer.timerValue;
 
         // Visual change
-        timerTitle.textContent = restTimer.type;
-        documentBody.style.backgroundColor = restTimer.accentColor;
-        typeRest.style.color = restTimer.accentColor;
+        timerTitle.textContent = selectType.restTimer.type;
+        documentBody.style.backgroundColor = selectType.restTimer.accentColor;
+        typeRest.style.color = selectType.restTimer.accentColor;
         typeRest.style.backgroundColor = 'var(--clr-black)';
+
+        playButton.style.display = 'block';
+        stopButton.style.display = 'block';
+        pauseButton.style.display = 'none';
+        isRunning = false;
 
         // Change other types to normal
         typeBreak.style.color = 'var(--clr-black)';
@@ -93,13 +162,19 @@ typeBreak.onclick = () => {
     if(timerType!='break') {
 
         console.log("Switching to break timer...");
-        timerType = breakTimer.type.toLowerCase();
+        timerType = selectType.breakTimer.type.toLowerCase();
+        timerSpan = selectType.breakTimer.timerValue;
 
         // Visual change
-        timerTitle.textContent = breakTimer.type;
-        documentBody.style.backgroundColor = breakTimer.accentColor;
+        timerTitle.textContent = selectType.breakTimer.type;
+        documentBody.style.backgroundColor = selectType.breakTimer.accentColor;
         typeBreak.style.backgroundColor = 'var(--clr-black)';
-        typeBreak.style.color = breakTimer.accentColor;
+        typeBreak.style.color = selectType.breakTimer.accentColor;
+
+        playButton.style.display = 'block';
+        stopButton.style.display = 'block';
+        pauseButton.style.display = 'none';
+        isRunning = false;
 
         // Change other types to normal
         typeSession.style.color = 'var(--clr-black)';

@@ -20,7 +20,9 @@
 
 body {
   background-color: var(--clr-red);
+  height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
 /* Header style */
@@ -84,7 +86,7 @@ header {
 .button-container #pause-button {
   height: 80px;
   width: 80px;
-  margin-left: 60px;
+  margin-left: 0px;
   background-color: var(--clr-blue);
   border: 5px solid var(--clr-black);
   border-radius: 50%;
@@ -121,16 +123,17 @@ header {
 /* Selection timer styles */
 .selection-container {
   position: absolute;
-  bottom: 5px;
+  bottom: 10px;
   width: 100%;
+  margin-left: -3px;
 }
 
 .selection-items {
   list-style: none;
-  font-size: 1.3em;
+  font-size: 1em;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   user-select: none;
 }
 .selection-items li {
@@ -184,6 +187,7 @@ header {
 
   .selection-container {
     font-size: 1.6em;
+    margin-left: -15px;
   }
   .item-divider {
     margin-top: 10px;
