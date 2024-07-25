@@ -44,20 +44,23 @@ const selectType = {
 let timerType = 'session';
 let isRunning = false;
 let confirmExit = false;
-let timerSpan = selectType.sessionTimer.timerValue; // 1 500 000 miliseconds
+let timerSpan = selectType.sessionTimer.timerValue;
+
+// Assign value to displayer variables
 timerDisplay.textContent = `${timerSpan / (1000 * 60)}:00`;
 headTitle.textContent = selectHeadTitle();
 
 // Timer variables
-let startTime = Date.now() + timerSpan; // Output = 1 500 000 ms
+let startTime = Date.now() + timerSpan;
 let timeLeft = timerSpan;
 let timerInterval = null;
 
 
 // Functions
 function playTimer() {
-    timeLeft = startTime - Date.now(); // Decreased the time (Constantly running)
+    timeLeft = startTime - Date.now();
 
+    // Check if timer is finished
     if(timeLeft < 0){
 
         clearInterval(timerInterval);
@@ -67,13 +70,16 @@ function playTimer() {
         return;
     }
 
+    // Convert miliseconds to minutes and seconds
     const minutesLeft = Math.floor(timeLeft / (1000 * 60)) % 60;
     const secondsLeft = Math.round(timeLeft / 1000)% 60;
 
+    // Display output
     console.log(`${minutesLeft} : ${secondsLeft}`);
     timerDisplay.textContent = `${minutesLeft}:${singleDigitHandler(secondsLeft)}`;
 }
 
+// Add zero at the beginning of a single digit number
 function singleDigitHandler(number) {
 
     if(String(number).length<=1) {
@@ -84,6 +90,7 @@ function singleDigitHandler(number) {
     }
 }
 
+// Select appropriate website's head title
 function selectHeadTitle() {
     if(timerType=='session'){
         return selectType.sessionTimer.headTitle;
@@ -174,7 +181,7 @@ typeSession.onclick = () => {
         typeSession.style.color = selectType.sessionTimer.accentColor;
         typeSession.style.backgroundColor = 'var(--clr-black)';
 
-        // Re-declare variables
+        // Re-assign values to the variables
         timerDisplay.textContent = `${timerSpan / (1000 * 60)}:00`;
         startTime = Date.now() + timerSpan; // Output = 1 500 000 ms
         timeLeft = timerSpan;
@@ -216,7 +223,7 @@ typeRest.onclick = () => {
         typeRest.style.color = selectType.restTimer.accentColor;
         typeRest.style.backgroundColor = 'var(--clr-black)';
 
-        // Re-declare variables
+        // Re-assign values to the variables
         timerDisplay.textContent = `${timerSpan / (1000 * 60)}:00`;
         startTime = Date.now() + timerSpan; // Output = 1 500 000 ms
         timeLeft = timerSpan;
@@ -230,7 +237,7 @@ typeRest.onclick = () => {
         // Change other types to normal
         typeBreak.style.color = 'var(--clr-black)';
         typeBreak.style.backgroundColor = 'transparent';
-        typeSession.style.color = 'var(--clr-black';
+        typeSession.style.color = 'var(--clr-black)';
         typeSession.style.backgroundColor = 'transparent';
     }
 
@@ -259,7 +266,7 @@ typeBreak.onclick = () => {
         typeBreak.style.backgroundColor = 'var(--clr-black)';
         typeBreak.style.color = selectType.breakTimer.accentColor;
 
-        // Re-declare variables
+        // Re-assign values to the variables
         timerDisplay.textContent = `${timerSpan / (1000 * 60)}:00`;
         startTime = Date.now() + timerSpan; // Output = 1 500 000 ms
         timeLeft = timerSpan;
